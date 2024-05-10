@@ -8,17 +8,14 @@
  * @param velocity новое значение скорости
  */
 void Ball::setVelocity(const Velocity& velocity) {
-    // TODO: место для доработки
-    vx = velocity.vector().x;
-    vy = velocity.vector().y;
+    Ball::velocity = velocity;
 }
 
 /**
  * @return скорость объекта
  */
 Velocity Ball::getVelocity() const {
-    // TODO: место для доработки
-    return {Point(vx,vy)};
+    return {velocity};
 }
 
 /**
@@ -30,9 +27,7 @@ Velocity Ball::getVelocity() const {
  * @param painter контекст отрисовки
  */
 void Ball::draw(Painter& painter) const {
-    // TODO: место для доработки
-    painter.draw(getCenter(), getRadius(), getColor());
-
+    painter.draw(getCenter(),getRadius(),getColor());
 }
 
 /**
@@ -40,17 +35,14 @@ void Ball::draw(Painter& painter) const {
  * @param center новый центр объекта
  */
 void Ball::setCenter(const Point& center) {
-    // TODO: место для доработки
-    x = center.x;
-    y = center.y;
+    Ball::center = center;
 }
 
 /**
  * @return центр объекта
  */
 Point Ball::getCenter() const {
-    // TODO: место для доработки
-    return {x, y};
+    return {center};
 }
 
 /**
@@ -59,7 +51,6 @@ Point Ball::getCenter() const {
  * не требуется
  */
 double Ball::getRadius() const {
-    // TODO: место для доработки
     return radius;
 }
 
@@ -71,22 +62,22 @@ double Ball::getRadius() const {
  * эквивалентна объему: PI * radius^3 * 4. / 3.
  */
 double Ball::getMass() const {
-    // TODO: место для доработки
     return PI * 4 * pow(getRadius(), 3) / 3;
-    //return {};
-}
-void Ball::setColor(const Color& color) {
-    r = color.red();
-    g = color.green();
-    b = color.blue();
-}
-Color Ball::getColor() const {
-    return {r, g, b};
 }
 
-bool Ball::getIsCollidable() const {
+const Color& Ball::getColor() const {
+    return color;
+}
+void Ball::setColor(const Color& color) {
+    Ball::color = color;
+}
+
+bool Ball::getIsCollidable() const
+{
     return isCollidable;
 }
-void Ball::setIsCollidable(bool isCollidable) {
+
+void Ball::setIsCollidable(bool isCollidable)
+{
     Ball::isCollidable = isCollidable;
 }

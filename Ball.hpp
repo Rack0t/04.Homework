@@ -1,7 +1,6 @@
 #pragma once
 #include "Painter.hpp"
 #include "Point.hpp"
-#include "Color.hpp"
 #include "Velocity.hpp"
 
 class Ball {
@@ -13,20 +12,16 @@ class Ball {
     Point getCenter() const;
     double getRadius() const;
     double getMass() const;
+    const Color& getColor() const;
     void setColor(const Color& color);
-    Color getColor() const;
     double radius;
     bool getIsCollidable() const;
     void setIsCollidable(bool isCollidable);
 
-  private:
-    double x;
-    double y;
-    double vx;
-    double vy;
-    double r;
-    double g;
-    double b;
-    bool isCollidable;
 
+  private:
+    Velocity velocity;
+    Point center;
+    Color color;
+    bool isCollidable;
 };
