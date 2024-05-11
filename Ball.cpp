@@ -1,8 +1,6 @@
 #include "Ball.hpp"
 #include <cmath>
 
-#define PI 3.1415926535
-
 /**
  * Задает скорость объекта
  * @param velocity новое значение скорости
@@ -62,7 +60,7 @@ double Ball::getRadius() const {
  * эквивалентна объему: PI * radius^3 * 4. / 3.
  */
 double Ball::getMass() const {
-    return PI * 4 * pow(getRadius(), 3) / 3;
+    return M_PI * 4 * pow(getRadius(), 3) / 3;
 }
 
 const Color& Ball::getColor() const {

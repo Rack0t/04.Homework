@@ -7,6 +7,7 @@
 // Изменять не следует
 static constexpr double timePerTick = 0.001;
 
+
 /**
  * Конструирует объект мира для симуляции
  * @param worldFilePath путь к файлу модели мира
