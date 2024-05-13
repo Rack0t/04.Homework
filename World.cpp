@@ -7,15 +7,15 @@
 // Изменять не следует
 static constexpr double timePerTick = 0.001;
 
-std::ifstream& operator >> (std::ifstream& is, Ball& ball){
+std::ifstream& operator >> (std::ifstream& stream, Ball& ball){
 
     double x, y, vx, vy, red, green, blue, radius;
     bool isCollidable;
     // Считываем из потока параметры шара.
-    is >> x >> y >> vx >> vy;
-    is >> red >> green >> blue;
-    is >> radius;
-    is >> std::boolalpha >> isCollidable;
+    stream >> x >> y >> vx >> vy;
+    stream >> red >> green >> blue;
+    stream >> radius;
+    stream >> std::boolalpha >> isCollidable;
 
     ball.setCenter(Point{x,y});
     ball.setVelocity(Point{vx, vy});
@@ -23,7 +23,7 @@ std::ifstream& operator >> (std::ifstream& is, Ball& ball){
     ball.setRadius(radius);
     ball.setIsCollidable(isCollidable);
 
-    return is;
+    return stream;
 }
 
 
